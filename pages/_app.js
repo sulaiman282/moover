@@ -1,7 +1,7 @@
 import Router from "next/router";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
-// import Layout from "../components/Layout/Layout";
+import Layout from "../components/Layout/Layout";
 import { StyledEngineProvider } from "@mui/material/styles";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -11,8 +11,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useState, useEffect } from "react";
 
-// import store from "../rtk/store/store";
-// import { Provider } from "react-redux";
+import store from "../rtk/store/store";
+import { Provider } from "react-redux";
 
 function MyApp({ Component, pageProps, router }) {
   const [loading, setLoading] = useState(true);
@@ -55,8 +55,8 @@ function MyApp({ Component, pageProps, router }) {
     <>
       <StyledEngineProvider injectFirst>
         {!loading && (
-          //  <Provider store={store}>
-          //           <Layout>
+           <Provider store={store}>
+                    <Layout>
           <>
             <ThemeProvider theme={theme}>
               <CssBaseline />
@@ -77,8 +77,8 @@ function MyApp({ Component, pageProps, router }) {
               theme="colored"
             />
           </>
-          // </Layout>
-          // </Provider>
+          </Layout>
+           </Provider>
         )}
       </StyledEngineProvider>
     </>
